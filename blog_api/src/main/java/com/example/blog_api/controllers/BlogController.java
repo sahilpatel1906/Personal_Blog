@@ -28,9 +28,9 @@ public class BlogController {
         return new ResponseEntity<>(blogs, HttpStatus.OK);
     }
 
-//    @PostMapping
-//    public ResponseEntity<Blog> addBlog(BlogDTO blogDTO){
-//        Optional<Blog> newBlog = blogService.addBlog(blogDTO);
-//        return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
-//    }
+    @PostMapping
+    public ResponseEntity<Blog> addBlog(BlogDTO blogDTO){
+        Blog newBlog = blogService.addBlog(blogDTO);
+        return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
+    }
 }
