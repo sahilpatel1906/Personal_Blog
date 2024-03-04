@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +25,7 @@ public class BlogController {
     }
 
     @PostMapping
-    public ResponseEntity<Blog> addBlog(BlogDTO blogDTO){
+    public ResponseEntity<Blog> addBlog(@RequestBody BlogDTO blogDTO){
         Blog newBlog = blogService.addBlog(blogDTO);
         return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
     }
@@ -39,4 +38,9 @@ public class BlogController {
         }
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
+
+//    @PutMapping(value = "/{id}")
+//    public ResponseEntity<Blog> updateBlog(@RequestBody BlogDTO blogDTO){
+//
+//    }
 }

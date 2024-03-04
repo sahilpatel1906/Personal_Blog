@@ -1,9 +1,5 @@
 package com.example.blog_api.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
-
-import java.util.List;
 public class BlogDTO {
 
     private String name;
@@ -21,7 +17,7 @@ public class BlogDTO {
         this.userId = userId;
     }
 
-    public BlogDTO(String dateOfCreation) {
+    public BlogDTO() {
     }
 
     //    GETTERS AND SETTERS
