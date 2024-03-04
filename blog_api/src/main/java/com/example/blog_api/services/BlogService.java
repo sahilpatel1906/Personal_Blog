@@ -23,8 +23,16 @@ public class BlogService {
         return blogRepository.findAll();
     }
 
-//    public Optional<Blog> addBlog(BlogDTO blogDTO) {
-//        User user =
-//        Blog newBlog = new Blog(blogDTO.getName(), blogDTO.getDateOfCreation(), blogDTO.getTimeOfCreation(), )
-//    }
+    public Blog addBlog(BlogDTO blogDTO) {
+        Optional<User> user = userRepository.findById(blogDTO.getUserId());
+        if(user.isPresent()) {
+            Blog newBlog = new Blog(blogDTO.getName(), blogDTO.getDateOfCreation(), blogDTO.getTimeOfCreation(), user.get());
+            return blogRepository.save(newBlog);
+        }
+        return null;
+    }
+
+    public Optional<Blog> getById(Long id) {
+        return blogRepository.findById(id);
+    }
 }
