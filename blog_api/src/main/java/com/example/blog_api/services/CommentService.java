@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CommentService {
@@ -20,9 +21,15 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
+    //Creates a new comment
+    //public ...
 
 
-
+    //Gets a comment by id
+    public Comment getCommentById(Long id)
+    {
+        return commentRepository.getById(id);
+    }
 
 
 }
