@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/blogs")
@@ -26,8 +28,9 @@ public class BlogController {
         return new ResponseEntity<>(blogs, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Blog> addBlog(BlogDTO blogDTO){
-
-    }
+//    @PostMapping
+//    public ResponseEntity<Blog> addBlog(BlogDTO blogDTO){
+//        Optional<Blog> newBlog = blogService.addBlog(blogDTO);
+//        return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
+//    }
 }
