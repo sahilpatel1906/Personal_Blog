@@ -17,15 +17,14 @@ public class User {
     private String name;
 
     @Column
-    private String Password;
+    private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs;
 
     public User(String name, String password) {
-        this.id = id;
         this.name = name;
-        Password = password;
+        this.password = password;
         this.blogs = new ArrayList<>();
     }
 
@@ -50,11 +49,11 @@ public class User {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        password = password;
     }
 
     public List<Blog> getBlogs() {

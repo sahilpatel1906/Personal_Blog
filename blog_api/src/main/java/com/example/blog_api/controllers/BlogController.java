@@ -36,7 +36,7 @@ public class BlogController {
         if(blog.isPresent()){
             return new ResponseEntity<>(blog.get(), HttpStatus.OK);
         }
-        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
 //    @PutMapping(value = "/{id}")
