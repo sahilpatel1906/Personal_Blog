@@ -25,7 +25,7 @@ public class Comment {
     @Column(name = "user_name")
     private String userName;
 
-    public Comment(Long id, Post post, String text, boolean isEdited, String userName) {
+    public Comment(Post post, String text, boolean isEdited, String userName) {
         this.id = id;
         this.post = post;
         this.text = text;

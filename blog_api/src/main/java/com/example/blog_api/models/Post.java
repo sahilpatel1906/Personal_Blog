@@ -3,6 +3,7 @@ package com.example.blog_api.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,14 +30,14 @@ public class Post {
     private List<Comment> comments;
 
 //    CONSTRUCTOR
-    public Post(Blog blog, String dateOfCreation, int likes, String content, String mediaURL, List<Comment> comments) {
+    public Post(Blog blog, String dateOfCreation, int likes, String content, String mediaURL) {
 
         this.blog = blog;
         this.dateOfCreation = dateOfCreation;
         this.likes = likes;
         this.content = content;
         this.mediaURL = mediaURL;
-        this.comments = comments;
+        this.comments = new ArrayList<>();
     }
 // DEFAULT CONSTRUCTOR
     public Post() {
