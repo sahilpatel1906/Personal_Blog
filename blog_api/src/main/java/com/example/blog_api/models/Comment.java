@@ -10,7 +10,7 @@ public class Comment {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //Many to One relationship with 
+    //Many to One relationship with Post
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Long post_id;
