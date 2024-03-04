@@ -2,6 +2,7 @@ package com.example.blog_api.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,11 +22,11 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs;
 
-    public User(long id, String name, String password, List<Blog> blogs) {
+    public User(String name, String password) {
         this.id = id;
         this.name = name;
         Password = password;
-        this.blogs = blogs;
+        this.blogs = new ArrayList<>();
     }
 
     public User() {
