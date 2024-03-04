@@ -1,5 +1,6 @@
 package com.example.blog_api.services;
 
+import com.example.blog_api.models.Comment;
 import com.example.blog_api.models.CommentDTO;
 import com.example.blog_api.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,12 @@ public class CommentService {
     CommentRepository commentRepository;
 
     //Gets a list of all comments
-    public List getAllComments()
+    public List<Comment> getAllComments()
     {
         return commentRepository.findAll();
     }
 
-    public void newComment(CommentDTO commentDTO)
-    {
 
-    }
 
 
 

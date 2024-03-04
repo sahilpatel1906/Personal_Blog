@@ -13,11 +13,13 @@ public class CommentDTO {
         this.isEdited = isEdited;
     }
 
+    //POJO empty constructor
     public CommentDTO()
     {
 
     }
 
+    //GETTERS and SETTERS
     public String getText() {
         return text;
     }
