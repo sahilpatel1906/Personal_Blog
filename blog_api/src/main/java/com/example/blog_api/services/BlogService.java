@@ -31,4 +31,8 @@ public class BlogService {
         }
         return null;
     }
+
+    public Optional<Blog> getById(Long id) {
+        return blogRepository.findById(id);
+    }
 }
