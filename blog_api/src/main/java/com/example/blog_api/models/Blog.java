@@ -1,5 +1,6 @@
 package com.example.blog_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -23,17 +24,18 @@ public class Blog {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Long userId;
+    @JsonIgnoreProperties({"blogs"})
+    private User user;
 
     @OneToMany(mappedBy = "blog")
     private List<Post> posts;
 
-    public Blog(Long id, String name, String dateOfCreation, String timeOfCreation, Long userId, List<Post> posts) {
+    public Blog(Long id, String name, String dateOfCreation, String timeOfCreation, User user, List<Post> posts) {
         this.id = id;
         this.name = name;
         this.dateOfCreation = dateOfCreation;
         this.timeOfCreation = timeOfCreation;
-        this.userId = userId;
+        this.user = user;
         this.posts = posts;
     }
 
@@ -75,12 +77,12 @@ public class Blog {
         this.timeOfCreation = timeOfCreation;
     }
 
-    public long getUser() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Post> getPosts() {

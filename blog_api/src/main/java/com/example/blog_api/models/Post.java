@@ -1,5 +1,6 @@
 package com.example.blog_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,7 +14,8 @@ public class Post {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "blog_id")
-    private Long blogId;
+    @JsonIgnoreProperties({"posts"})
+    private Blog blog;
     @Column
     private String dateOfCreation;
     @Column
@@ -27,9 +29,9 @@ public class Post {
     private List<Comment> comments;
 
 //    CONSTRUCTOR
-    public Post(Long blogId, String dateOfCreation, int likes, String content, String mediaURL, List<Comment> comments) {
+    public Post(Blog blog, String dateOfCreation, int likes, String content, String mediaURL, List<Comment> comments) {
 
-        this.blogId = blogId;
+        this.blog = blog;
         this.dateOfCreation = dateOfCreation;
         this.likes = likes;
         this.content = content;
@@ -49,12 +51,12 @@ public class Post {
         this.id = id;
     }
 
-    public Long getBlogId() {
-        return blogId;
+    public Blog getBlog() {
+        return blog;
     }
 
-    public void setBlogId(Long blogId) {
-        this.blogId = blogId;
+    public void setBlog(Blog blog) {
+        this.blog = blog;
     }
 
     public String getDateOfCreation() {

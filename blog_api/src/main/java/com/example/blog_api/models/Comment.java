@@ -1,5 +1,5 @@
 package com.example.blog_api.models;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,10 +10,11 @@ public class Comment {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //Many to One relationship with Post
+    //Many-to-One relationship with Post
     @ManyToOne
+    @JsonIgnoreProperties({"comments"})
     @JoinColumn(name = "post_id")
-    private Long post_id;
+    private Post post;
 
     @Column(name = "text")
     private String text;
@@ -24,9 +25,9 @@ public class Comment {
     @Column(name = "user_name")
     private String userName;
 
-    public Comment(Long id, Long post_id, String text, boolean isEdited, String userName) {
+    public Comment(Long id, Post post, String text, boolean isEdited, String userName) {
         this.id = id;
-        this.post_id = post_id;
+        this.post = post;
         this.text = text;
         this.isEdited = isEdited;
         this.userName = userName;
@@ -46,12 +47,12 @@ public class Comment {
         this.id = id;
     }
 
-    public Long getPost_id() {
-        return post_id;
+    public Post getPost() {
+        return post;
     }
 
-    public void setPost_id(Long post_id) {
-        this.post_id = post_id;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public String getText() {
