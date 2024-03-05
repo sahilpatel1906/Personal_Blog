@@ -4,6 +4,7 @@ import com.example.blog_api.models.Comment;
 import com.example.blog_api.models.CommentDTO;
 import com.example.blog_api.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,8 +32,14 @@ public class CommentService {
         return commentRepository.getById(id);
     }
 
+    //Updates a specific comment
+    //public void updateComment()
 
 
-
+    //Deletes a specific comment
+    public void deleteCommentById(Long id)
+    {
+        commentRepository.delete(getCommentById(id));
+    }
 
 }
