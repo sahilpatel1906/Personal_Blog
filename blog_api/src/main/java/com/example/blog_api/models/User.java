@@ -1,6 +1,5 @@
 package com.example.blog_api.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ public class User {
     private List<Blog> blogs;
 
     public User(String name, String password) {
+        this.id = id;
         this.name = name;
         Password = password;
         this.blogs = new ArrayList<>();
