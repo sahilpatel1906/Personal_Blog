@@ -26,10 +26,9 @@ public class Comment {
     private String userName;
 
     public Comment(Post post, String text, boolean isEdited, String userName) {
-        this.id = id;
         this.post = post;
         this.text = text;
-        this.isEdited = isEdited;
+        this.isEdited = false;
         this.userName = userName;
     }
 
@@ -63,7 +62,7 @@ public class Comment {
         this.text = text;
     }
 
-    public boolean isEdited() {
+    public boolean getEdited() {
         return isEdited;
     }
 

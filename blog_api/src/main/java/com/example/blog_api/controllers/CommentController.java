@@ -18,6 +18,7 @@ public class CommentController {
 
     @Autowired
     CommentService commentService;
+    //Gets a list of all comments
     @GetMapping
     public ResponseEntity<List<Comment>>getAllComments()
     {
