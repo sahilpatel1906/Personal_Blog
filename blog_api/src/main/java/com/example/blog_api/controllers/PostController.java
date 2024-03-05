@@ -1,9 +1,6 @@
 package com.example.blog_api.controllers;
 
-import com.example.blog_api.models.NewPostDTO;
-import com.example.blog_api.models.NewUserDTO;
-import com.example.blog_api.models.Post;
-import com.example.blog_api.models.User;
+import com.example.blog_api.models.*;
 import com.example.blog_api.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,8 +27,8 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<Post> addPost(@RequestBody NewPostDTO newPostDTO){
-        Post post = postService.savePost(newPostDTO);
+    public ResponseEntity<Post> addNewPost(@RequestBody NewPostDTO newPostDTO){
+        Post post = postService.addPost(newPostDTO);
         return new ResponseEntity<>(post, HttpStatus.CREATED);
     }
 
@@ -43,5 +40,16 @@ public class PostController {
         }
         return new ResponseEntity<>(post.get(),HttpStatus.OK);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Post> updatePost(@RequestBody UpdatePostDTO updatePostDTO, @PathVariable Long id){
+       Optional<Post> post = postService.getPostById(id);
+        if(post.isEmpty()){
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+        }
+        Post updatedPost = postService.updatePost(updatePostDTO, id);
+        return new ResponseEntity<>(updatedPost,HttpStatus.OK);
+    }
+
     
 }

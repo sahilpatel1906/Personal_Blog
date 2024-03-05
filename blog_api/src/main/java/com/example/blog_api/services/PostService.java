@@ -21,7 +21,7 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Post savePost(NewPostDTO newPostDTO) {
+    public Post addPost(NewPostDTO newPostDTO) {
         Optional<Blog> blog = blogRepository.findById(newPostDTO.getBlogId());
         if(blog.isEmpty()){
             return null;
@@ -37,5 +37,13 @@ public class PostService {
 
     public Optional<Post> getPostById(Long id){
         return postRepository.findById(id);
+    }
+
+
+    public Post updatePost(UpdatePostDTO updatePostDTO, Long id) {
+       Post updatedPost = postRepository.findById(id).get();
+       updatedPost.setContent(updatePostDTO.getContent());
+       updatedPost.setMediaURL(updatedPost.getMediaURL());
+       return postRepository.save(updatedPost);
     }
 }
