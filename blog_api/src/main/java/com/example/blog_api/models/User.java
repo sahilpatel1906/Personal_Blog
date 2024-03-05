@@ -76,4 +76,8 @@ public class User {
     public void removeBlog(Blog blog){
         this.blogs.remove(blog);
     }
+
+    public User save(User userToUpdate) {
+        return userToUpdate;
+    }
 }
