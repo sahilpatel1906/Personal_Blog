@@ -3,6 +3,7 @@ package com.example.blog_api.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,16 +31,15 @@ public class Blog {
     @OneToMany(mappedBy = "blog")
     private List<Post> posts;
 
-    public Blog(Long id, String name, String dateOfCreation, String timeOfCreation, User user, List<Post> posts) {
-        this.id = id;
+    public Blog() {
+    }
+
+    public Blog(String name, String dateOfCreation, String timeOfCreation, User user){
         this.name = name;
         this.dateOfCreation = dateOfCreation;
         this.timeOfCreation = timeOfCreation;
         this.user = user;
-        this.posts = posts;
-    }
-
-    public Blog() {
+        this.posts = new ArrayList<>();
     }
 
     //    GETTERS AND SETTERS
