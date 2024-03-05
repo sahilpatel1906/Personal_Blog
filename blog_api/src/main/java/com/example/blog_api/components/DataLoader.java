@@ -62,12 +62,12 @@ public class DataLoader implements ApplicationRunner {
         blogRepository.save(bookReviewBlog);
         blogRepository.save(diaryBlog);
 
-        Post post1 = new Post(fitnessBlog, "15/05/24", 5, "My 5 Workout Routines to lose Weight!", "image 1");
-        Post post2 = new Post(travelBlog, "10/01/24", 10, "My 5 Fav places to Travel", "image 4");
-        Post post3 = new Post(travelBlog, "06/02/24", 1080, "Most expensive places to visit", "image 2");
-        Post post4 = new Post(fashionBlog, "09/11/24", 45, "The Smart Casual Look", "image 1");
-        Post post5 = new Post(bookReviewBlog, "09/11/24", 45, "My Top 10 books of 2023", "image 1");
-        Post post6 = new Post(diaryBlog, "09/11/24", 45, "Diary entry 103", "image 1");
+        Post post1 = new Post(fitnessBlog, "15/05/24", "My 5 Workout Routines to lose Weight!", "image 1");
+        Post post2 = new Post(travelBlog, "10/01/24", "My 5 Fav places to Travel", "image 4");
+        Post post3 = new Post(travelBlog, "06/02/24", "Most expensive places to visit", "image 2");
+        Post post4 = new Post(fashionBlog, "09/11/24", "The Smart Casual Look", "image 1");
+        Post post5 = new Post(bookReviewBlog, "09/11/24", "My Top 10 books of 2023", "image 1");
+        Post post6 = new Post(diaryBlog, "09/11/24", "Diary entry 103", "image 1");
 
         postRepository.save(post1);
         postRepository.save(post2);

@@ -12,7 +12,7 @@ public class Comment {
 
     //Many-to-One relationship with Post
     @ManyToOne
-    @JsonIgnoreProperties({"comments"}) //Prevents loop
+    @JsonIgnoreProperties({"comments", "blog"}) //Prevents loop
     @JoinColumn(name = "post_id")
     private Post post;
 
@@ -28,7 +28,7 @@ public class Comment {
     public Comment(Post post, String text, boolean isEdited, String userName) {
         this.post = post;
         this.text = text;
-        this.isEdited = isEdited;
+        this.isEdited = false;
         this.userName = userName;
     }
 
@@ -62,11 +62,11 @@ public class Comment {
         this.text = text;
     }
 
-    public boolean isEdited() {
+    public boolean getIsEdited() {
         return isEdited;
     }
 
-    public void setEdited(boolean edited) {
+    public void setIsEdited(boolean edited) {
         isEdited = edited;
     }
 

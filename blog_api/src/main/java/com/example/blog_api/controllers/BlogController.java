@@ -1,7 +1,8 @@
 package com.example.blog_api.controllers;
 
 import com.example.blog_api.models.Blog;
-import com.example.blog_api.models.BlogDTO;
+import com.example.blog_api.models.NewBlogDTO;
+import com.example.blog_api.models.UpdateBlogDTO;
 import com.example.blog_api.services.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,8 @@ public class BlogController {
     }
 
     @PostMapping
-    public ResponseEntity<Blog> addBlog(@RequestBody BlogDTO blogDTO){
-        Blog newBlog = blogService.addBlog(blogDTO);
+    public ResponseEntity<Blog> addBlog(@RequestBody NewBlogDTO newBlogDTO){
+        Blog newBlog = blogService.addBlog(newBlogDTO);
         return new ResponseEntity<>(newBlog, HttpStatus.CREATED);
     }
 
@@ -40,11 +41,17 @@ public class BlogController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Blog> updateBlog(@RequestBody BlogDTO blogDTO){
-        Optional<Blog> updatedBlog = blogService.updateBlog(blogDTO);
+    public ResponseEntity<Blog> updateBlog(@PathVariable Long id, @RequestBody UpdateBlogDTO updateBlogDTO){
+        Optional<Blog> updatedBlog = blogService.updateBlog(updateBlogDTO, id);
         if(updatedBlog.isPresent()){
             return new ResponseEntity<>(updatedBlog.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteBlog(@PathVariable Long id){
+        blogService.deleteBlog(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }
