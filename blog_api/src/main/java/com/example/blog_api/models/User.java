@@ -1,5 +1,6 @@
 package com.example.blog_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class User {
     private String Password;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"user"})
     private List<Blog> blogs;
 
     public User(String name, String password) {
