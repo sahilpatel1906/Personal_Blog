@@ -1,14 +1,13 @@
 package com.example.blog_api.controllers;
 
+import com.example.blog_api.models.NewUserDTO;
 import com.example.blog_api.models.Post;
 import com.example.blog_api.models.User;
 import com.example.blog_api.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,4 +26,10 @@ public class PostController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+//    @PostMapping("/posts")
+//    public ResponseEntity<Post> postPost(@RequestBody NewUserDTO newUserDTO){
+//        User user = postService.saveUser(newUserDTO);
+//        return new ResponseEntity<>(user, HttpStatus.CREATED);
+//    }
 }

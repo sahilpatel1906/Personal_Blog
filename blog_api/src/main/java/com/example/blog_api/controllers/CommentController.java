@@ -53,13 +53,15 @@ public class CommentController {
             Comment comment = commentService.updateComment(commentDTO, id);
             return new ResponseEntity<>(comment, HttpStatus.OK);
         }
-        else return null;
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-
-    /*Deletes a specific comment
+//    Deletes a specific comment
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity
-    */
+    public ResponseEntity<Long> deleteComment(@PathVariable Long id){
+      commentService.deleteCommentById(id);
+       return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
 
 }
