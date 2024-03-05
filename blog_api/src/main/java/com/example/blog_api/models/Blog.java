@@ -2,6 +2,8 @@ package com.example.blog_api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,7 @@ public class Blog {
 
     @OneToMany(mappedBy = "blog")
     @JsonIgnoreProperties({"blog"})
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Post> posts;
 
     public Blog() {

@@ -2,6 +2,8 @@ package com.example.blog_api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     @JsonIgnoreProperties({"user"})
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Blog> blogs;
 
     public User(String name, String password) {

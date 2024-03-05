@@ -48,20 +48,8 @@ public class UserService {
         return userRepository.save(userToUpdate);
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(Long id){
         User user = userRepository.findById(id).get();
-        for (Blog blog : user.getBlogs()){
-            for (Post post : blog.getPosts()){
-                post.getComments().clear();
-                postRepository.save(post);
-//                for (Comment comment : post.getComments()){
-//
-//                }
-            }
-            blog.getPosts().clear();
-            blogRepository.save(blog);
-        }
-        user.getBlogs().clear();
         userRepository.delete(user);
     }
 }
