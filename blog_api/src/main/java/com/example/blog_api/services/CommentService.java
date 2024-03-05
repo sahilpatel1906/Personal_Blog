@@ -2,7 +2,11 @@ package com.example.blog_api.services;
 
 import com.example.blog_api.models.Comment;
 import com.example.blog_api.models.CommentDTO;
+import com.example.blog_api.models.Post;
+import com.example.blog_api.models.User;
 import com.example.blog_api.repositories.CommentRepository;
+import com.example.blog_api.repositories.PostRepository;
+import com.example.blog_api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,8 +17,13 @@ import java.util.Optional;
 @Service
 public class CommentService {
 
-    //@Autowired
+    @Autowired
     CommentRepository commentRepository;
+
+    @Autowired
+    PostRepository postRepository;
+    @Autowired
+    UserService userService;
 
     //Gets a list of all comments
     public List<Comment> getAllComments()
@@ -22,8 +31,24 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
-    //Creates a new comment
-    //public ...
+    //Creates a new comment in Post
+    public void addComment(CommentDTO commentDTO)
+    {
+        //Finds username using userId
+        String username = userService.findUser(commentDTO.getUserId()).getName();
+        //Finding post by its post id
+        Post post = postRepository.findById(commentDTO.getPostId()).get();
+        //Created Comment object
+        Comment comment = new Comment(
+                post,
+                commentDTO.getText(),
+                commentDTO.getEdited(),
+                username);
+        //Created a comment that shows username
+        //If post and user exists, save the comment
+        if (post != null && username != null)
+            commentRepository.save(comment);
+    }
 
 
     //Gets a comment by id
@@ -43,3 +68,12 @@ public class CommentService {
     }
 
 }
+
+// Does post exist
+// if it does get the post
+// Does user with the userId exist
+// If it does get User
+// user.getName
+// Comment = new Comment(post, dto.getText, dto.getIsEdited, user.getName)
+// post.addComment(comment)
+// commentRepo.save(comment)
