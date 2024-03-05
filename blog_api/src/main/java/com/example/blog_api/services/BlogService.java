@@ -42,9 +42,12 @@ public class BlogService {
         if(blogToUpdate.isEmpty()){
             return null;
         }
+
         blogToUpdate.get().setName(updateBlogDTO.getName());
         blogToUpdate.get().setDateOfCreation(updateBlogDTO.getDateOfCreation());
         blogToUpdate.get().setTimeOfCreation(updateBlogDTO.getTimeOfCreation());
+        blogRepository.save(blogToUpdate.get());
+
         return blogToUpdate;
     }
 }
