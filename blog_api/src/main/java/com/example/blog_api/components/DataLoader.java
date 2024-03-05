@@ -14,8 +14,14 @@ import com.example.blog_api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD
     public class DataLoader implements ApplicationRunner {
+=======
+@Component
+public class DataLoader implements ApplicationRunner {
+>>>>>>> 67c1895a213a56c8459fa2adc0e523edf2f56d86
 
         @Autowired
         UserRepository userRepository;
