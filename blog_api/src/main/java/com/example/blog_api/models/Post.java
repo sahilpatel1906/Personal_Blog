@@ -26,6 +26,7 @@ public class Post {
     @Column
     private String mediaURL;
 
+    @JsonIgnoreProperties({"post"})
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
