@@ -15,7 +15,7 @@ public class Post {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "blog_id")
-    @JsonIgnoreProperties({"posts"})
+    @JsonIgnoreProperties({"posts", "user"}) //Ignoring user as well as do not need user info
     private Blog blog;
     @Column
     private String dateOfCreation;
@@ -93,11 +93,11 @@ public class Post {
         this.mediaURL = mediaURL;
     }
 
-    public List<Comment> getComment() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComment(List<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 

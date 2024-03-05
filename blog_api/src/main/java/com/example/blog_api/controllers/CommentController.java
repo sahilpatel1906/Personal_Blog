@@ -1,16 +1,15 @@
 package com.example.blog_api.controllers;
 
 import com.example.blog_api.models.Comment;
+import com.example.blog_api.models.CommentDTO;
 import com.example.blog_api.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/comments")
@@ -18,6 +17,7 @@ public class CommentController {
 
     @Autowired
     CommentService commentService;
+
     //Gets a list of all comments
     @GetMapping
     public ResponseEntity<List<Comment>>getAllComments()
@@ -27,8 +27,14 @@ public class CommentController {
         return new ResponseEntity<>(comments, HttpStatus.OK);
     }
 
+    //Create a new comment
+    @PostMapping
+    public ResponseEntity<Comment> addNewComment(@RequestBody CommentDTO commentDTO)
+    {
+        Comment newComment = commentService.addComment(commentDTO);
+        return new ResponseEntity<>(newComment, HttpStatus.CREATED);
+    }
 
-
-
+    //
 
 }

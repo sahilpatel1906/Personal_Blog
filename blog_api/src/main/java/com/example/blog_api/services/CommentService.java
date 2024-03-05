@@ -32,24 +32,27 @@ public class CommentService {
     }
 
     //Creates a new comment in Post
-    public void addComment(CommentDTO commentDTO)
-    {
+    public Comment addComment(CommentDTO commentDTO) {
         //Finds username using userId
         String username = userService.findUser(commentDTO.getUserId()).getName();
         //Finding post by its post id
         Post post = postRepository.findById(commentDTO.getPostId()).get();
-        //Created Comment object
-        Comment comment = new Comment(
-                post,
-                commentDTO.getText(),
-                commentDTO.getEdited(),
-                username);
         //Created a comment that shows username
         //If post and user exists, save the comment
-        if (post != null && username != null)
-            commentRepository.save(comment);
-    }
+        if (post == null && username == null)
+        {
+            return null;
+        }
+            //Created Comment object
+            Comment comment = new Comment(
+                    post,
+                    commentDTO.getText(),
+                    commentDTO.getIsEdited(),
+                    username);
 
+            commentRepository.save(comment);
+            return comment;
+    }
 
     //Gets a comment by id
     public Comment getCommentById(Long id)
@@ -65,7 +68,7 @@ public class CommentService {
         //Finding comment by its comment id
         Comment comment = commentRepository.findById(id).get();
         //If comment has not been edited before
-        if (commentDTO.getEdited().equals(false)){
+        if (commentDTO.getIsEdited().equals(false)){
         Comment updatedComment = commentRepository.findById(id).get();
         updatedComment.setText(commentDTO.getText());
         updatedComment.setEdited(true);

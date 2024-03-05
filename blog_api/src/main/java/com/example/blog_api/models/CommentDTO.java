@@ -37,15 +37,15 @@ public class CommentDTO {
         return postId;
     }
 
-    public void setPostId(Long post) {
+    public void setPostId(Long postId) {
         this.postId = postId;
     }
 
-    public Boolean getEdited() {
+    public Boolean getIsEdited() {
         return isEdited;
     }
 
-    public void setEdited(Boolean edited) {
+    public void setIsEdited(Boolean edited) {
         isEdited = edited;
     }
 
