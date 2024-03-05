@@ -1,5 +1,6 @@
 package com.example.blog_api.controllers;
 
+import com.example.blog_api.models.NewPostDTO;
 import com.example.blog_api.models.NewUserDTO;
 import com.example.blog_api.models.Post;
 import com.example.blog_api.models.User;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("posts")
@@ -27,9 +29,19 @@ public class PostController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-//    @PostMapping("/posts")
-//    public ResponseEntity<Post> postPost(@RequestBody NewUserDTO newUserDTO){
-//        User user = postService.saveUser(newUserDTO);
-//        return new ResponseEntity<>(user, HttpStatus.CREATED);
-//    }
+    @PostMapping
+    public ResponseEntity<Post> addPost(@RequestBody NewPostDTO newPostDTO){
+        Post post = postService.savePost(newPostDTO);
+        return new ResponseEntity<>(post, HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Post> getPostById(@PathVariable Long id){
+        Optional<Post> post = postService.getPostById(id);
+        if(post.isEmpty()){
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(post.get(),HttpStatus.OK);
+    }
+    
 }

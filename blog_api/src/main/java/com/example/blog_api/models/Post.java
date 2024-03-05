@@ -31,11 +31,11 @@ public class Post {
     private List<Comment> comments;
 
 //    CONSTRUCTOR
-    public Post(Blog blog, String dateOfCreation, int likes, String content, String mediaURL) {
+    public Post(Blog blog, String dateOfCreation, String content, String mediaURL) {
 
         this.blog = blog;
         this.dateOfCreation = dateOfCreation;
-        this.likes = likes;
+        this.likes = 0;
         this.content = content;
         this.mediaURL = mediaURL;
         this.comments = new ArrayList<>();
