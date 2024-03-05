@@ -2,6 +2,8 @@ package com.example.blog_api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ public class Post {
     private String mediaURL;
 
     @JsonIgnoreProperties({"post"})
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 

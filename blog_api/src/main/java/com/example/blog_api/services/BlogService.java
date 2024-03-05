@@ -1,7 +1,8 @@
 package com.example.blog_api.services;
 
 import com.example.blog_api.models.Blog;
-import com.example.blog_api.models.BlogDTO;
+import com.example.blog_api.models.NewBlogDTO;
+import com.example.blog_api.models.UpdateBlogDTO;
 import com.example.blog_api.models.User;
 import com.example.blog_api.repositories.BlogRepository;
 import com.example.blog_api.repositories.UserRepository;
@@ -23,10 +24,10 @@ public class BlogService {
         return blogRepository.findAll();
     }
 
-    public Blog addBlog(BlogDTO blogDTO) {
-        Optional<User> user = userRepository.findById(blogDTO.getUserId());
+    public Blog addBlog(NewBlogDTO newBlogDTO) {
+        Optional<User> user = userRepository.findById(newBlogDTO.getUserId());
         if(user.isPresent()) {
-            Blog newBlog = new Blog(blogDTO.getName(), blogDTO.getDateOfCreation(), blogDTO.getTimeOfCreation(), user.get());
+            Blog newBlog = new Blog(newBlogDTO.getName(), newBlogDTO.getDateOfCreation(), newBlogDTO.getTimeOfCreation(), user.get());
             return blogRepository.save(newBlog);
         }
         return null;
@@ -36,8 +37,22 @@ public class BlogService {
         return blogRepository.findById(id);
     }
 
-    public Optional<Blog> updateBlog(BlogDTO blogDTO){
-//        Blog blogToUpdate = blogRepository.findById(blogDTO.)
-        return null;
+    public Optional<Blog> updateBlog(UpdateBlogDTO updateBlogDTO, Long id){
+        Optional<Blog> blogToUpdate = blogRepository.findById(id);
+        if(blogToUpdate.isEmpty()){
+            return null;
+        }
+
+        blogToUpdate.get().setName(updateBlogDTO.getName());
+        blogToUpdate.get().setDateOfCreation(updateBlogDTO.getDateOfCreation());
+        blogToUpdate.get().setTimeOfCreation(updateBlogDTO.getTimeOfCreation());
+        blogRepository.save(blogToUpdate.get());
+
+        return blogToUpdate;
+    }
+
+    public void deleteBlog(Long id) {
+        Blog blog = blogRepository.findById(id).get();
+        blogRepository.delete(blog);
     }
 }
