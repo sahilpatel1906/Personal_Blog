@@ -11,6 +11,7 @@ import com.example.blog_api.repositories.BlogRepository;
 import com.example.blog_api.repositories.CommentRepository;
 import com.example.blog_api.repositories.PostRepository;
 import com.example.blog_api.repositories.UserRepository;
+import com.example.blog_api.services.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
