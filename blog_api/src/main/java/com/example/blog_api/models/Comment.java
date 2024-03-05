@@ -26,6 +26,7 @@ public class Comment {
     private String userName;
 
     public Comment(Post post, String text, boolean isEdited, String userName) {
+        this.id = id;
         this.post = post;
         this.text = text;
         this.isEdited = isEdited;
