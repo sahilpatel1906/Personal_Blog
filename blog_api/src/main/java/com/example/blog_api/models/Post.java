@@ -93,11 +93,11 @@ public class Post {
         this.mediaURL = mediaURL;
     }
 
-    public List<Comment> getComments() {
+    public List<Comment> getComment() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComment(List<Comment> comments) {
         this.comments = comments;
     }
 
