@@ -55,9 +55,9 @@ public class CommentService {
     }
 
     //Gets a comment by id
-    public Comment getCommentById(Long id)
+    public Optional <Comment> getCommentById(Long id)
     {
-        return commentRepository.getById(id);
+        return commentRepository.findById(id);
     }
 
     //Updates a specific comment
@@ -79,7 +79,7 @@ public class CommentService {
     //Deletes a specific comment
     public void deleteCommentById(Long id)
     {
-        commentRepository.delete(getCommentById(id));
+        commentRepository.delete(getCommentById(id).get());
     }
 
 }

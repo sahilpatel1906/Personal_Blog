@@ -35,6 +35,13 @@ public class CommentController {
         return new ResponseEntity<>(newComment, HttpStatus.CREATED);
     }
 
-    //
-
+    //Updates specific comment
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Comment> updateComment(@PathVariable Long id) {
+        Optional<Comment> comment = commentService.getCommentById(id);
+        if (comment.isPresent()) {
+            return new ResponseEntity<>(comment.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
 }
