@@ -35,4 +35,9 @@ public class BlogService {
     public Optional<Blog> getById(Long id) {
         return blogRepository.findById(id);
     }
+
+    public Optional<Blog> updateBlog(BlogDTO blogDTO){
+//        Blog blogToUpdate = blogRepository.findById(blogDTO.)
+        return null;
+    }
 }

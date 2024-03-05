@@ -10,6 +10,8 @@ public class BlogDTO {
 
     private Long userId;
 
+    private Long blogId;
+
     public BlogDTO(String name, String dateOfCreation, String timeOfCreation, Long userId) {
         this.name = name;
         this.dateOfCreation = dateOfCreation;

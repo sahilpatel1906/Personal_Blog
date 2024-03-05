@@ -39,8 +39,12 @@ public class BlogController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<Blog> updateBlog(@RequestBody BlogDTO blogDTO){
-//
-//    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Blog> updateBlog(@RequestBody BlogDTO blogDTO){
+        Optional<Blog> updatedBlog = blogService.updateBlog(blogDTO);
+        if(updatedBlog.isPresent()){
+            return new ResponseEntity<>(updatedBlog.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
 }

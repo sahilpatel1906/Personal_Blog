@@ -29,6 +29,7 @@ public class Blog {
     private User user;
 
     @OneToMany(mappedBy = "blog")
+    @JsonIgnoreProperties({"blog"})
     private List<Post> posts;
 
     public Blog() {
