@@ -50,4 +50,9 @@ public class BlogService {
 
         return blogToUpdate;
     }
+
+    public void deleteBlog(Long id) {
+        Blog blog = blogRepository.findById(id).get();
+        blogRepository.delete(blog);
+    }
 }
