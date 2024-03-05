@@ -1,5 +1,8 @@
 package com.example.blog_api.components;
 
+
+
+
 import com.example.blog_api.models.Blog;
 import com.example.blog_api.models.Comment;
 import com.example.blog_api.models.Post;
@@ -84,3 +87,4 @@ public class DataLoader implements ApplicationRunner {
         commentRepository.save(diaryBlogComment);
     }
 }
+
