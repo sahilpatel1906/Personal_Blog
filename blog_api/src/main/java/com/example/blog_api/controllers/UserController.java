@@ -26,7 +26,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<User> postUser(@RequestBody NewUserDTO newUserDTO){
         User user = userService.saveUser(newUserDTO);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
