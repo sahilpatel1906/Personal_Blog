@@ -41,8 +41,8 @@ public class BlogController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Blog> updateBlog(@RequestBody UpdateBlogDTO updateBlogDTO){
-        Optional<Blog> updatedBlog = blogService.updateBlog(updateBlogDTO);
+    public ResponseEntity<Blog> updateBlog(@PathVariable Long id, @RequestBody UpdateBlogDTO updateBlogDTO){
+        Optional<Blog> updatedBlog = blogService.updateBlog(updateBlogDTO, id);
         if(updatedBlog.isPresent()){
             return new ResponseEntity<>(updatedBlog.get(), HttpStatus.OK);
         }

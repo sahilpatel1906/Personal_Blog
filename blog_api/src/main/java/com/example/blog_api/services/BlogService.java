@@ -37,11 +37,14 @@ public class BlogService {
         return blogRepository.findById(id);
     }
 
-    public Optional<Blog> updateBlog(UpdateBlogDTO updateBlogDTO){
-        Optional<Blog> blogToUpdate = blogRepository.findById(updateBlogDTO.getBlogId());
+    public Optional<Blog> updateBlog(UpdateBlogDTO updateBlogDTO, Long id){
+        Optional<Blog> blogToUpdate = blogRepository.findById(id);
         if(blogToUpdate.isEmpty()){
             return null;
         }
+        blogToUpdate.get().setName(updateBlogDTO.getName());
+        blogToUpdate.get().setDateOfCreation(updateBlogDTO.getDateOfCreation());
+        blogToUpdate.get().setTimeOfCreation(updateBlogDTO.getTimeOfCreation());
         return blogToUpdate;
     }
 }

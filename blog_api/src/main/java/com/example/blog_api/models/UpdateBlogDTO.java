@@ -8,14 +8,11 @@ public class UpdateBlogDTO {
 
     private String timeOfCreation;
 
-    private Long blogId;
-
     // Constructor for adding new blog
-    public UpdateBlogDTO(String name, String dateOfCreation, String timeOfCreation, Long blogId) {
+    public UpdateBlogDTO(String name, String dateOfCreation, String timeOfCreation) {
         this.name = name;
         this.dateOfCreation = dateOfCreation;
         this.timeOfCreation = timeOfCreation;
-        this.blogId = blogId;
     }
 
     public UpdateBlogDTO() {
@@ -46,13 +43,5 @@ public class UpdateBlogDTO {
 
     public void setTimeOfCreation(String timeOfCreation) {
         this.timeOfCreation = timeOfCreation;
-    }
-
-    public Long getBlogId() {
-        return blogId;
-    }
-
-    public void setBlogId(Long blogId) {
-        this.blogId = blogId;
     }
 }
