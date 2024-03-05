@@ -62,11 +62,11 @@ public class Comment {
         this.text = text;
     }
 
-    public boolean getEdited() {
+    public boolean getIsEdited() {
         return isEdited;
     }
 
-    public void setEdited(boolean edited) {
+    public void setIsEdited(boolean edited) {
         isEdited = edited;
     }
 

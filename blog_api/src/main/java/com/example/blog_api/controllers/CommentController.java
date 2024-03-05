@@ -35,13 +35,31 @@ public class CommentController {
         return new ResponseEntity<>(newComment, HttpStatus.CREATED);
     }
 
-    //Updates specific comment
+    //Gets comment by its id
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Comment> updateComment(@PathVariable Long id) {
+    public ResponseEntity<Comment> getCommentById(@PathVariable Long id) {
         Optional<Comment> comment = commentService.getCommentById(id);
         if (comment.isPresent()) {
             return new ResponseEntity<>(comment.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody CommentDTO commentDTO)
+    {
+        if (commentService.getCommentById(id).isPresent())
+        {
+            Comment comment = commentService.updateComment(commentDTO, id);
+            return new ResponseEntity<>(comment, HttpStatus.OK);
+        }
+        else return null;
+    }
+
+
+    /*Deletes a specific comment
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity
+    */
+
 }

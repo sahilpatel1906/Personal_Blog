@@ -61,19 +61,17 @@ public class CommentService {
     }
 
     //Updates a specific comment
-    public void updateComment(CommentDTO commentDTO, long id) // updated comment
+    public Comment updateComment(CommentDTO commentDTO, long id) // updated comment
     {
         //Finding post by its post id
         Post post = postRepository.findById(commentDTO.getPostId()).get();
-        //Finding comment by its comment id
-        Comment comment = commentRepository.findById(id).get();
-        //If comment has not been edited before
-        if (commentDTO.getIsEdited().equals(false)){
+
         Comment updatedComment = commentRepository.findById(id).get();
         updatedComment.setText(commentDTO.getText());
-        updatedComment.setEdited(true);
+        updatedComment.setIsEdited(true);
         updatedComment.getUserName();
-        }
+        commentRepository.save(updatedComment);
+        return updatedComment;
     }
 
     //Deletes a specific comment
