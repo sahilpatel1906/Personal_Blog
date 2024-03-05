@@ -1,6 +1,6 @@
 package com.example.blog_api.models;
 
-public class BlogDTO {
+public class UpdateBlogDTO {
 
     private String name;
 
@@ -8,21 +8,18 @@ public class BlogDTO {
 
     private String timeOfCreation;
 
-    private Long userId;
-
-    private Long blogId;
-
-    public BlogDTO(String name, String dateOfCreation, String timeOfCreation, Long userId) {
+    // Constructor for adding new blog
+    public UpdateBlogDTO(String name, String dateOfCreation, String timeOfCreation) {
         this.name = name;
         this.dateOfCreation = dateOfCreation;
         this.timeOfCreation = timeOfCreation;
-        this.userId = userId;
     }
 
-    public BlogDTO() {
+    public UpdateBlogDTO() {
     }
 
     //    GETTERS AND SETTERS
+
 
     public String getName() {
         return name;
@@ -46,13 +43,5 @@ public class BlogDTO {
 
     public void setTimeOfCreation(String timeOfCreation) {
         this.timeOfCreation = timeOfCreation;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 }
