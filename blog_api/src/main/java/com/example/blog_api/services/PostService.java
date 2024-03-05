@@ -46,4 +46,9 @@ public class PostService {
        updatedPost.setMediaURL(updatedPost.getMediaURL());
        return postRepository.save(updatedPost);
     }
+
+
+    public void deletePost(Long id) {
+       postRepository.delete(getPostById(id).get());
+    }
 }
