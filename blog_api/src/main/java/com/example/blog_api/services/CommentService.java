@@ -32,48 +32,52 @@ public class CommentService {
     }
 
     //Creates a new comment in Post
-    public void addComment(CommentDTO commentDTO)
-    {
+    public Comment addComment(CommentDTO commentDTO) {
         //Finds username using userId
         String username = userService.findUser(commentDTO.getUserId()).getName();
         //Finding post by its post id
         Post post = postRepository.findById(commentDTO.getPostId()).get();
-        //Created Comment object
-        Comment comment = new Comment(
-                post,
-                commentDTO.getText(),
-                commentDTO.getEdited(),
-                username);
         //Created a comment that shows username
         //If post and user exists, save the comment
-        if (post != null && username != null)
+        if (post == null && username == null)
+        {
+            return null;
+        }
+            //Created Comment object
+            Comment comment = new Comment(
+                    post,
+                    commentDTO.getText(),
+                    commentDTO.getIsEdited(),
+                    username);
+
             commentRepository.save(comment);
+            return comment;
     }
 
-
     //Gets a comment by id
-    public Comment getCommentById(Long id)
+    public Optional <Comment> getCommentById(Long id)
     {
-        return commentRepository.getById(id);
+        return commentRepository.findById(id);
     }
 
     //Updates a specific comment
-    //public void updateComment()
+    public Comment updateComment(CommentDTO commentDTO, long id) // updated comment
+    {
+        //Finding post by its post id
+        Post post = postRepository.findById(commentDTO.getPostId()).get();
 
+        Comment updatedComment = commentRepository.findById(id).get();
+        updatedComment.setText(commentDTO.getText());
+        updatedComment.setIsEdited(true);
+        updatedComment.getUserName();
+        commentRepository.save(updatedComment);
+        return updatedComment;
+    }
 
     //Deletes a specific comment
     public void deleteCommentById(Long id)
     {
-        commentRepository.delete(getCommentById(id));
+        commentRepository.delete(getCommentById(id).get());
     }
 
 }
-
-// Does post exist
-// if it does get the post
-// Does user with the userId exist
-// If it does get User
-// user.getName
-// Comment = new Comment(post, dto.getText, dto.getIsEdited, user.getName)
-// post.addComment(comment)
-// commentRepo.save(comment)
