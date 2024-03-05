@@ -1,9 +1,9 @@
 package com.example.blog_api.services;
 
-import com.example.blog_api.models.Blog;
-import com.example.blog_api.models.NewUserDTO;
-import com.example.blog_api.models.User;
+import com.example.blog_api.models.*;
 import com.example.blog_api.repositories.BlogRepository;
+import com.example.blog_api.repositories.CommentRepository;
+import com.example.blog_api.repositories.PostRepository;
 import com.example.blog_api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +20,12 @@ public class UserService {
     @Autowired
     BlogRepository blogRepository;
 
+    @Autowired
+    PostRepository postRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
+
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -27,10 +33,6 @@ public class UserService {
 
     public User saveUser(NewUserDTO newUserDTO) {
         User user = new User(newUserDTO.getName(), newUserDTO.getPassword());
-        for(Long blogId : newUserDTO.getBlogIds()){
-            Blog blog = blogRepository.findById(blogId).get();
-            user.addBlog(blog);
-        }
         return userRepository.save(user);
     }
 
@@ -42,17 +44,12 @@ public class UserService {
         User userToUpdate = userRepository.findById(id).get();
         userToUpdate.setName(newUserDTO.getName());
         userToUpdate.setPassword(newUserDTO.getPassword());
-        userToUpdate.setBlogs(new ArrayList<Blog>());
 
-        for(Long estateId : newUserDTO.getBlogIds() ){
-            Blog blog = blogRepository.findById(estateId).get();
-            userToUpdate.addBlog(blog);
-        }
-
-        return userToUpdate.save(userToUpdate);
+        return userRepository.save(userToUpdate);
     }
 
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public void deleteUser(Long id){
+        User user = userRepository.findById(id).get();
+        userRepository.delete(user);
     }
 }
