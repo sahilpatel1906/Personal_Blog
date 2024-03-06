@@ -56,7 +56,7 @@ public class PostService {
        postRepository.delete(getPostById(id).get());
     }
 
-    public Optional<Post> addLike(Long postId, Long userId){
+    public Optional<Post> updateLike(Long postId, Long userId){
         Optional<Post> post = postRepository.findById(postId);
         if(post.isEmpty()){
             return Optional.empty();
@@ -69,7 +69,11 @@ public class PostService {
 
         // Checking if the user has already liked the post
         if(post.get().getUsers().contains(user.get())){
-            return Optional.empty();
+            post.get().removeLike(user.get());
+            user.get().removeLikeToPost(post.get());
+
+            postRepository.save(post.get());
+            return post;
         }
 
         post.get().addLike(user.get());

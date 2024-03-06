@@ -61,7 +61,7 @@ public class PostController {
     public ResponseEntity<Post> updateLikes(@PathVariable Long postId, @PathVariable Long userId)
     {
         //Looks for specific post
-        Optional<Post> post = postService.addLike(postId, userId);
+        Optional<Post> post = postService.updateLike(postId, userId);
         if(post.isPresent()){
             return new ResponseEntity<>(post.get(), HttpStatus.OK);
         }
