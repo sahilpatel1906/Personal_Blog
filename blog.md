@@ -1,4 +1,4 @@
-# Group 5 - Blog Chatroom 
+# <center>Group 5 - Blog Chatroom </center>
 
 <center><img src = "image.png" width = "200"></center>
 
