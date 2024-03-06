@@ -1,5 +1,6 @@
 package com.example.blog_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
@@ -29,11 +30,13 @@ public class Post {
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
+    @JsonIgnore
     private List<User> users;
     @Column
     private String content;
     @Column
     private String mediaURL;
+    private int numberOfLikes;
 
     @JsonIgnoreProperties({"post"})
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -42,7 +45,6 @@ public class Post {
 
 //    CONSTRUCTOR
     public Post(Blog blog, String dateOfCreation, String content, String mediaURL) {
-
         this.blog = blog;
         this.dateOfCreation = dateOfCreation;
         this.users = new ArrayList<>();
@@ -111,11 +113,23 @@ public class Post {
         this.comments = comments;
     }
 
+    public int getNumberOfLikes(){
+        return this.users.size();
+    }
+
     public void addComment(Comment comment){
         this.comments.add(comment);
     }
 
     public void removeComment(Comment comment){
         this.comments.remove(comment);
+    }
+
+    public void addLike(User user){
+        this.users.add(user);
+    }
+
+    public void removeLike(User user){
+        this.users.remove(user);
     }
 }

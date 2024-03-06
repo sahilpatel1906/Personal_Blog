@@ -97,5 +97,11 @@ public class User {
         return userToUpdate;
     }
 
-    public get
+    public void addLikeToPost(Post post){
+        this.posts.add(post);
+    }
+
+    public void removeLikeToPost(Post post){
+        this.posts.remove(post);
+    }
 }
