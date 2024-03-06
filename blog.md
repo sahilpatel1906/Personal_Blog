@@ -5,13 +5,21 @@ The idea behind our project is to create a forum-style platform that allows user
 
 The chatroom element comes into play when adding the comments feature to posts where users can interact with each other regarding various topics of interest or themes.
 
-Users can post to their blog feed and also view posts from other creators.
+Users can post to their blog and also view posts from other creators.
 
 Users can also like each other’s posts; each post can be liked once and the likes increment as more people like it.
 
 One relevant example of a platform that has developed a similar concept is Substack.
 
+## Functionality
 
+<li> One-to-many relationship between User and Blog.
+
+<li> One-to-many relationship between Blog and Posts.
+
+<li> One-to-many relationship between Posts and Comments.
+
+<li> Many-to-many relationship between User and Post with the likes of a post joining them together.
 
 
 
