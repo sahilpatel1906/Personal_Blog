@@ -47,8 +47,11 @@ public class PostService {
 
     public Post updatePost(UpdatePostDTO updatePostDTO, Long id) {
        Post updatedPost = postRepository.findById(id).get();
+
+       updatedPost.setTitle(updatePostDTO.getTitle());
        updatedPost.setContent(updatePostDTO.getContent());
-       updatedPost.setMediaURL(updatedPost.getMediaURL());
+       updatedPost.setMediaURL(updatePostDTO.getMediaURL());
+
        return postRepository.save(updatedPost);
     }
 
