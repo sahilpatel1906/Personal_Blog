@@ -1,4 +1,4 @@
-# <img src = "image.png" width = "50"> Group 5 - Blog Chatroom  <img src = "image.png" width = "50">
+# 👾 Group 5 - Blog Chatroom 👾
 
 ## Summary
 The idea behind our project is to create a forum-style platform that allows users to post blogs within a feed in the form of written words with the option to add media and/or images.
