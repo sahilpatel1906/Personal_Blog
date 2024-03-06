@@ -21,9 +21,22 @@ One relevant example of a platform that has developed a similar concept is Subst
 
 <li> Many-to-many relationship between User and Post with the likes of a post joining them together.
 
+## MVP
+<li>Creation of a new user
+<li>Update the information of a user
+<li>Delete a user
+<li>Add a blog (Choose the name of blog eg: cooking, fitness)
+<li>Add a post to a specific blog
+<li>Post different content types e.g. photos or videos
+<li>Add a like to a post
+<li>Find a post by Id
 
+## Extensions
 
+<li>Add a comment to a post
+<li>Like counter of each post by a specific user.
 
+## Tables
 
 
 
