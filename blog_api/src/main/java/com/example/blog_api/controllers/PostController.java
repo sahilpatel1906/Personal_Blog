@@ -56,4 +56,15 @@ public class PostController {
         postService.deletePost(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
+
+    @PatchMapping(value = "/{postId}/{userId}/likes")
+    public ResponseEntity<Post> updateLikes(@PathVariable Long postId, @PathVariable Long userId)
+    {
+        //Looks for specific post
+        Optional<Post> post = postService.updateLike(postId, userId);
+        if(post.isPresent()){
+            return new ResponseEntity<>(post.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    }
 }

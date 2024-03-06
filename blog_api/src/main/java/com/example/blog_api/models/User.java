@@ -1,5 +1,6 @@
 package com.example.blog_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
@@ -20,21 +21,22 @@ public class User {
     private String name;
 
     @Column
-    private String Password;
+    @JsonIgnore
+    private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties({"user"})
+    @JsonIgnoreProperties({"user", "dateOfCreation", "timeOfCreation", "posts"})
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Blog> blogs;
 
     // Posts a user has liked
-    @JsonIgnoreProperties({"users"})
     @ManyToMany(mappedBy = "users")
+    @JsonIgnore
     private List<Post> posts;
 
     public User(String name, String password) {
         this.name = name;
-        Password = password;
+        this.password = password;
         this.blogs = new ArrayList<>();
         this.posts = new ArrayList<>();
     }
@@ -60,11 +62,11 @@ public class User {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public List<Blog> getBlogs() {
@@ -97,5 +99,11 @@ public class User {
         return userToUpdate;
     }
 
-    public get
+    public void addLikeToPost(Post post){
+        this.posts.add(post);
+    }
+
+    public void removeLikeToPost(Post post){
+        this.posts.remove(post);
+    }
 }

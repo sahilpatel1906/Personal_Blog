@@ -3,6 +3,7 @@ package com.example.blog_api.services;
 import com.example.blog_api.models.*;
 import com.example.blog_api.repositories.BlogRepository;
 import com.example.blog_api.repositories.PostRepository;
+import com.example.blog_api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class PostService {
 
     @Autowired
     BlogRepository blogRepository;
+
+    @Autowired
+    UserRepository userRepository;
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
@@ -51,4 +55,32 @@ public class PostService {
     public void deletePost(Long id) {
        postRepository.delete(getPostById(id).get());
     }
+
+    public Optional<Post> updateLike(Long postId, Long userId){
+        Optional<Post> post = postRepository.findById(postId);
+        if(post.isEmpty()){
+            return Optional.empty();
+        }
+
+        Optional<User> user = userRepository.findById(userId);
+        if(user.isEmpty()){
+            return Optional.empty();
+        }
+
+        // Checking if the user has already liked the post
+        if(post.get().getUsers().contains(user.get())){
+            post.get().removeLike(user.get());
+            user.get().removeLikeToPost(post.get());
+
+            postRepository.save(post.get());
+            return post;
+        }
+
+        post.get().addLike(user.get());
+        user.get().addLikeToPost(post.get());
+
+        postRepository.save(post.get());
+        return post;
+    }
+
 }
