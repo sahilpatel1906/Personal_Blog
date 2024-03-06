@@ -37,10 +37,15 @@ One relevant example of a platform that has developed a similar concept is Subst
 <li>Like counter of each post by a specific user.
 
 ## Tables
+Blogs
 
-
-
-
+|   | URL         | Method  |Description                    | Request Body |
+|---|-------------|--------|--------------------------------|--------------|
+| INDEX | /blogs      | GET    | Returns a list of all blogs   |              |
+| CREATE| /blogs      | POST   | Creates a new blog            | {"name" : "Adam", "dateOfCreation" : "12/12/2001, "timeOfCreation" : "12:00", "userId" : 3}             |
+| SHOW  | /blogs/:id  | GET    | Returns details of one specific blog |              |
+| UPDATE| /blogs/:id  | PUT    | Updates a specific blog       | {"name" : "BLOG", "dateOfCreation" : "12/12/2024, "timeOfCreation" : "Tomorrow"}             |
+| DELETE| /blogs/:id  | DELETE | Deletes a specific blog       |              |
 
 
 
