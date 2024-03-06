@@ -12,7 +12,7 @@ public class Comment {
 
     //Many-to-One relationship with Post
     @ManyToOne
-    @JsonIgnoreProperties({"comments", "blog"}) //Prevents loop
+    @JsonIgnoreProperties({"comments", "blog"}) //Prevents loops
     @JoinColumn(name = "post_id")
     private Post post;
 

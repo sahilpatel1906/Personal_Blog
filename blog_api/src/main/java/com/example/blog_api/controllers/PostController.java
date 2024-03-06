@@ -67,10 +67,4 @@ public class PostController {
         }
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
-
-//    @GetMapping("/{postId}/likes")
-//    public ResponseEntity<Long> getLikes(@PathVariable Long postId){
-//        Long likeCount = postService.getLikeCount(postId);
-//        return new ResponseEntity<>(likeCount, HttpStatus.OK);
-//    }
 }
