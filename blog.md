@@ -36,8 +36,21 @@ One relevant example of a platform that has developed a similar concept is Subst
 <li>Add a comment to a post
 <li>Like counter of each post by a specific user.
 
+## Process
+
+Created:
+1. UML diagram and Entity Relationship Diagram.
+2. Relevant packages: components, models, controllers, services, repositories for User, Blog, Post, and Comment.
+3. A Data loader within the components package.
+4. Models: relationship annotations, creating tables, getters and setters.
+5. Repositories as interfaces.
+6. DTOs in the model for each entity.
+7. Controllers and services simultaneously.
+<li> Tested each method using postman and checked tables on Postico for validity throughout.
+
+
 ## Endpoint Tables
-Blogs
+## Blogs
 
 |   | URL         | Method  |Description                    | Request Body |
 |---|-------------|--------|--------------------------------|--------------|
@@ -49,7 +62,7 @@ Blogs
 
 ---
 
-Posts
+## Posts
 |   | URL         | Method | Description                    | Request Body |
 |---|-------------|--------|--------------------------------|--------------|
 | INDEX | /posts      | GET    | Returns a list of all posts   |              |
@@ -61,7 +74,7 @@ Posts
 
 ---
 
-Users
+## Users
 |   | URL         | Method | Description                    | Request Body |
 |---|-------------|--------|--------------------------------|--------------|
 | INDEX | /users      | GET    | Returns a list of all users   |              |
@@ -71,8 +84,7 @@ Users
 | DELETE| /blogs/:id  | DELETE | Deletes a specific user       |              |
 
 ---
-
-Comments
+## Comments
 |   | URL         | Method | Description                    | Request Body |
 |---|-------------|--------|--------------------------------|--------------|
 | INDEX | /comments      | GET    | Returns a list of all comments   |              |
