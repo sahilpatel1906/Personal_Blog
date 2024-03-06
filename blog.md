@@ -1,4 +1,6 @@
-# Group 5 - Blog Chatroom
+# Group 5 - Blog Chatroom 
+
+<center><img src = "image.png" width = "200"></center>
 
 ## Summary
 The idea behind our project is to create a forum-style platform that allows users to post blogs within a feed in the form of written words with the option to add media and/or images.
