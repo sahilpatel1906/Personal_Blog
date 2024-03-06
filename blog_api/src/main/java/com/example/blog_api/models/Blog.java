@@ -31,7 +31,7 @@ public class Blog {
     private User user;
 
     @OneToMany(mappedBy = "blog")
-    @JsonIgnoreProperties({"blog"})
+    @JsonIgnoreProperties({"blog", "dateOfCreation", "content", "mediaURL", "numberOfLikes", "comments"})
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Post> posts;
 

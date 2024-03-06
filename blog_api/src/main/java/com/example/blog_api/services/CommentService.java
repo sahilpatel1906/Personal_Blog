@@ -47,7 +47,7 @@ public class CommentService {
             Comment comment = new Comment(
                     post,
                     commentDTO.getText(),
-                    commentDTO.getIsEdited(),
+                   false,
                     username);
 
             commentRepository.save(comment);

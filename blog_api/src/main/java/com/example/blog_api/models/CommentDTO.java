@@ -5,17 +5,15 @@ package com.example.blog_api.models;
 public class CommentDTO {
 
     private String text;
-    private Boolean isEdited;
     private Long postId;
-
     private Long userId;
 
-    public CommentDTO(String text, Long postId, Boolean isEdited, Long userId)
+    public CommentDTO(String text, Long postId, Long userId)
     {
         this.text = text;
         this.postId = postId;
-        this.isEdited = isEdited;
         this.userId = userId;
+
     }
 
     //POJO empty constructor
@@ -40,19 +38,9 @@ public class CommentDTO {
     public void setPostId(Long postId) {
         this.postId = postId;
     }
-
-    public Boolean getIsEdited() {
-        return isEdited;
-    }
-
-    public void setIsEdited(Boolean edited) {
-        isEdited = edited;
-    }
-
     public Long getUserId() {
         return userId;
     }
-
     public void setUserId(Long userId) {
         this.userId = userId;
     }
