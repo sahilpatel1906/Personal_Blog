@@ -27,10 +27,16 @@ public class User {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Blog> blogs;
 
+    // Posts a user has liked
+    @JsonIgnoreProperties({"users"})
+    @ManyToMany(mappedBy = "users")
+    private List<Post> posts;
+
     public User(String name, String password) {
         this.name = name;
         Password = password;
         this.blogs = new ArrayList<>();
+        this.posts = new ArrayList<>();
     }
 
     public User() {
@@ -69,6 +75,14 @@ public class User {
         this.blogs = blogs;
     }
 
+    public List<Post> getPosts(){
+        return this.posts;
+    }
+
+    public void setPosts(List<Post> posts){
+        this.posts = posts;
+    }
+
     // ADDITIONAL METHODS
 
     public void addBlog(Blog blog){
@@ -82,4 +96,6 @@ public class User {
     public User save(User userToUpdate) {
         return userToUpdate;
     }
+
+    public get
 }

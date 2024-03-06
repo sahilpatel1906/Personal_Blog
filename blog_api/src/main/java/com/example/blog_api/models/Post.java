@@ -21,8 +21,15 @@ public class Post {
     private Blog blog;
     @Column
     private String dateOfCreation;
-    @Column
-    private int likes;
+
+    // Users who have liked
+    @ManyToMany
+    @JoinTable(
+            name = "likes",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users;
     @Column
     private String content;
     @Column
@@ -38,7 +45,7 @@ public class Post {
 
         this.blog = blog;
         this.dateOfCreation = dateOfCreation;
-        this.likes = 0;
+        this.users = new ArrayList<>();
         this.content = content;
         this.mediaURL = mediaURL;
         this.comments = new ArrayList<>();
@@ -72,12 +79,12 @@ public class Post {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public int getLikes() {
-        return likes;
+    public List<User> getUsers() {
+        return this.users;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public String getContent() {
