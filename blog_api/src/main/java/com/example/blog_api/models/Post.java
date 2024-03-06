@@ -36,7 +36,7 @@ public class Post {
     private List<User> users;
     @Column
     private String content;
-    @Column
+    @Column(name = "media_URL")
     private String mediaURL;
     private int numberOfLikes;
 
