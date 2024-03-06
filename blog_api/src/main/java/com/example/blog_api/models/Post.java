@@ -38,6 +38,7 @@ public class Post {
     private String content;
     @Column(name = "media_URL")
     private String mediaURL;
+
     private int numberOfLikes;
 
     @JsonIgnoreProperties({"post", "id","isEdited"})

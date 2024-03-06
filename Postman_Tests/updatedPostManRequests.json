@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "bed6f85a-e7eb-4586-820c-8361797b46a1",
+		"_postman_id": "9aacfacd-8d57-4b6b-a6f6-36d0221fce74",
 		"name": "blog_api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33205836"
+		"_exporter_id": "32404073"
 	},
 	"item": [
 		{
@@ -123,122 +123,6 @@
 			]
 		},
 		{
-			"name": "users",
-			"item": [
-				{
-					"name": "INDEX",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/users",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CREATE",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"BA\",\n    \"password\": \"hello123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/users",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SHOW",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/users/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"users",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"ASA\",\n    \"password\": \"hello123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/users/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"users",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/users/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"users",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "posts",
 			"item": [
 				{
@@ -266,7 +150,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Dice Blog\",\n    \"dateOfCreation\": \"13/02/24\",\n    \"content\": \"my fitness blog!\",\n    \"mediaURL\":\"image 1\",\n    \"blogId\": 1\n}",
+							"raw": "{\n    \"title\": \"Dice Post\",\n    \"dateOfCreation\": \"13/02/24\",\n    \"content\": \"my fitness blog!\",\n    \"mediaURL\":\"image 1\",\n    \"blogId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -312,7 +196,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"fsasasda\",\n    \"content\": \"SHOULD CHANGE\",\n    \"mediaURL\":\"asdsad\"\n}",
+							"raw": "{\n    \"title\": \"fsasasda\",\n    \"content\": \"SHOULD CHANGE\",\n    \"mediaURL\":\"https://media.istockphoto.com/id/172793327/photo/say.jpg?s=612x612&w=0&k=20&c=-7vdn00x1O6nTvNBgfqxQQ0pOBTwMvhz7RphLPawZ4I=\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,6 +252,122 @@
 								"1",
 								"1",
 								"likes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mike\",\n    \"password\": \"hello123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mikey\",\n    \"password\": \"hello123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
 							]
 						}
 					},
@@ -449,7 +449,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"text\": \"I hated this!\",\n    \"postId\": 1,\n    \"userId\": 1\n}",
+							"raw": "{\n    \"text\": \"I loved this!\",\n    \"postId\": 1,\n    \"userId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
