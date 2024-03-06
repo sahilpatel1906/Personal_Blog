@@ -7,7 +7,10 @@ public class NewPostDTO {
     private String content;
     private String mediaURL;
 
-    public NewPostDTO(Long blogId, String dateOfCreation, String content, String mediaURL) {
+    private String title;
+
+    public NewPostDTO(String title, Long blogId, String dateOfCreation, String content, String mediaURL) {
+        this.title = title;
         this.blogId = blogId;
         this.dateOfCreation = dateOfCreation;
         this.content = content;
@@ -15,6 +18,14 @@ public class NewPostDTO {
     }
 
     public NewPostDTO() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Long getBlogId() {

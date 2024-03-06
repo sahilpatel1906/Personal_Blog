@@ -16,9 +16,11 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
+    private String title;
     @ManyToOne
     @JoinColumn(name = "blog_id")
-    @JsonIgnoreProperties({"posts", "user"}) //Ignoring user as well as do not need user info
+    @JsonIgnoreProperties({"posts", "user", "dateOfCreation", "timeOfCreation"}) //Ignoring user as well as do not need user info
     private Blog blog;
     @Column
     private String dateOfCreation;
@@ -38,13 +40,14 @@ public class Post {
     private String mediaURL;
     private int numberOfLikes;
 
-    @JsonIgnoreProperties({"post"})
+    @JsonIgnoreProperties({"post", "id","isEdited"})
     @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
 //    CONSTRUCTOR
-    public Post(Blog blog, String dateOfCreation, String content, String mediaURL) {
+    public Post(String title, Blog blog, String dateOfCreation, String content, String mediaURL) {
+        this.title = title;
         this.blog = blog;
         this.dateOfCreation = dateOfCreation;
         this.users = new ArrayList<>();
@@ -57,6 +60,15 @@ public class Post {
     }
 
 //  GETTERS AND SETTERS
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Long getId() {
         return id;
     }

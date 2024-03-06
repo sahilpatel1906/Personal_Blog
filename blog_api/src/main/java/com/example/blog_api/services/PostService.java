@@ -31,6 +31,7 @@ public class PostService {
             return null;
         }
         Post post = new Post(
+                newPostDTO.getTitle(),
                 blog.get(),
                 newPostDTO.getDateOfCreation(),
                 newPostDTO.getContent(),
