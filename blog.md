@@ -36,7 +36,7 @@ One relevant example of a platform that has developed a similar concept is Subst
 <li>Add a comment to a post
 <li>Like counter of each post by a specific user.
 
-## Tables
+## Endpoint Tables
 Blogs
 
 |   | URL         | Method  |Description                    | Request Body |
@@ -46,6 +46,8 @@ Blogs
 | SHOW  | /blogs/:id  | GET    | Returns details of one specific blog |              |
 | UPDATE| /blogs/:id  | PUT    | Updates a specific blog       | {"name" : "BLOG", "dateOfCreation" : "12/12/2024, "timeOfCreation" : "Tomorrow"}             |
 | DELETE| /blogs/:id  | DELETE | Deletes a specific blog       |              |
+
+---
 
 Posts
 |   | URL         | Method | Description                    | Request Body |
@@ -57,7 +59,16 @@ Posts
 | DELETE| /posts/:id  | DELETE | Deletes a specific post       |              |
 | UPDATE| /posts/:id  | PATCH | Adds and removes likes       |              |
 
+---
 
+Users
+|   | URL         | Method | Description                    | Request Body |
+|---|-------------|--------|--------------------------------|--------------|
+| INDEX | /users      | GET    | Returns a list of all users   |              |
+| CREATE| /users      | POST   | Creates a new user            | {"name" : "Mike", "password" : "hello123"}             |
+| SHOW  | /users/:id  | GET    | Returns details of one specific user |              |
+| UPDATE| /users/:id  | PUT    | Updates a specific user       | {"name" : "Miky", "password" : "hello123"}              |
+| DELETE| /blogs/:id  | DELETE | Deletes a specific user       |              |
 
-
+---
 
