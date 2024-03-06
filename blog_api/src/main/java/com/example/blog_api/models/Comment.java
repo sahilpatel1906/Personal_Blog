@@ -1,4 +1,5 @@
 package com.example.blog_api.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -12,7 +13,7 @@ public class Comment {
 
     //Many-to-One relationship with Post
     @ManyToOne
-    @JsonIgnoreProperties({"comments", "blog"}) //Prevents loops
+    @JsonIgnoreProperties({"comments", "blog", "dateOfCreation", "content", "mediaURL", "numberOfLikes"}) //Prevents loops
     @JoinColumn(name = "post_id")
     private Post post;
 
@@ -20,6 +21,7 @@ public class Comment {
     private String text;
 
     @Column(name = "is_edited")
+    @JsonIgnore
     private boolean isEdited;
 
     @Column(name = "user_name")
