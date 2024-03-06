@@ -47,6 +47,15 @@ Blogs
 | UPDATE| /blogs/:id  | PUT    | Updates a specific blog       | {"name" : "BLOG", "dateOfCreation" : "12/12/2024, "timeOfCreation" : "Tomorrow"}             |
 | DELETE| /blogs/:id  | DELETE | Deletes a specific blog       |              |
 
+Posts
+|   | URL         | Method | Description                    | Request Body |
+|---|-------------|--------|--------------------------------|--------------|
+| INDEX | /posts      | GET    | Returns a list of all posts   |              |
+| CREATE| /posts      | POST   | Creates a new post            | {"title" : "Dice Post", "dateOfCreation" : "13/02/2024", "content" : "my fitness blog", "mediaURL" : "image1", "blogId" : 1}             |
+| SHOW  | /posts/:id  | GET    | Returns details of one specific post |              |
+| UPDATE| /posts/:id  | PUT    | Updates a specific post       | {"title" : "New Dice", "content" : "Different coloured dice", "mediaURL" : "image2"}             |
+| DELETE| /posts/:id  | DELETE | Deletes a specific post       |              |
+| UPDATE| /posts/:id  | PATCH | Adds and removes likes       |              |
 
 
 
