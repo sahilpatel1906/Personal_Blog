@@ -72,3 +72,11 @@ Users
 
 ---
 
+Comments
+|   | URL         | Method | Description                    | Request Body |
+|---|-------------|--------|--------------------------------|--------------|
+| INDEX | /comments      | GET    | Returns a list of all comments   |              |
+| CREATE| /comments      | POST   | Creates a new comment            | {"text" : "I hated this!", "postId" : 1, "userId" : 1}             |
+| SHOW  | /comments/:id  | GET    | Returns details of one specific comment |              |
+| UPDATE| /comments/:id  | PUT    | Updates a specific comment       | {"text" : "I loved this!", "postId" : 1, "userId" : 1}             |             |
+| DELETE| /comments/:id  | DELETE | Deletes a specific comment       |              |
