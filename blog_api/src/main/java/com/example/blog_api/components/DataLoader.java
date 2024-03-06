@@ -34,6 +34,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     BlogRepository blogRepository;
 
+    public DataLoader() {
+    }
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 

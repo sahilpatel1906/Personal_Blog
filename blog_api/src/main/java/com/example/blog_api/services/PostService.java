@@ -74,7 +74,7 @@ public class PostService {
         // Checking if the user has already liked the post
         if(post.get().getUsers().contains(user.get())){
             post.get().removeLike(user.get());
-            user.get().removeLikeToPost(post.get());
+            user.get().removeLikeFromPost(post.get());
 
             postRepository.save(post.get());
             return post;
