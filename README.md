@@ -1,6 +1,6 @@
 # Group 5 - Blog Chatroom 
 <p align = center>
-<img src = image-1.png width = 200>
+<img src = images/image-1.png width = 200>
 </p>
 
 ## Summary
