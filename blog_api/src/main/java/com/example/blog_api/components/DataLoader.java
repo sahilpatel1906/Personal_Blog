@@ -163,6 +163,9 @@ public class DataLoader implements ApplicationRunner {
         commentRepository.save(bookReviewComment3);
         commentRepository.save(diaryBlogComment2);
         commentRepository.save(diaryBlogComment3);
+
+        post1.addLike(user1);
+        postRepository.save(post1);
     }
 }
 
