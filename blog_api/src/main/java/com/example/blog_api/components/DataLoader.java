@@ -82,7 +82,7 @@ public class DataLoader implements ApplicationRunner {
 
         Post post1 = new Post("Weight Loss Journey", fitnessBlog, "15/05/24", "My 5 Workout Routines to lose Weight!", null);
         Post post2 = new Post("Travel places",travelBlog, "10/01/24", "My 5 Fav places to Travel", "https://static.independent.co.uk/2023/08/02/10/iStock-507489863.jpg");
-        Post post3 = new Post("Best places",travelBlog, "06/02/24", "Most expensive places to visit", "image 2");
+        Post post3 = new Post("Best places",travelBlog, "06/02/24", "Most expensive places to visit", null);
         Post post4 = new Post("Fashionable",fashionBlog, "09/11/24", "The Smart Casual Look", "image 1");
         Post post5 = new Post("Book Review",bookReviewBlog, "09/11/24", "My Top 10 books of 2023", "image 1");
         Post post6 = new Post("My Diary",diaryBlog, "09/11/24", "Diary entry 103", "image 1");
