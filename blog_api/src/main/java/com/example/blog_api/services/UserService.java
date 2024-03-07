@@ -50,6 +50,13 @@ public class UserService {
 
     public void deleteUser(Long id){
         User user = userRepository.findById(id).get();
+        removeLikedPostsFromUser(user);
         userRepository.delete(user);
+    }
+
+    public void removeLikedPostsFromUser(User user){
+        for(Post post : user.getPosts()){
+            post.removeLike(user);
+        }
     }
 }
