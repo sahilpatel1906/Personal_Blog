@@ -52,21 +52,36 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user2);
         userRepository.save(user3);
         userRepository.save(user4);
+        userRepository.save(user5);
+        userRepository.save(user6);
+        userRepository.save(user7);
 
         Blog fitnessBlog = new Blog("Fitness Blog", "17/03/24", "15:00", user1);
         Blog travelBlog = new Blog("Travel Blog", "11/11/24", "15:00", user1);
         Blog fashionBlog = new Blog("Fashion Blog", "02/01/24", "15:00", user1);
-        Blog bookReviewBlog = new Blog("Book Review", "16/09/24", "15:00", user1);
-        Blog diaryBlog = new Blog("Diary Blog", "14/10/24", "15:00", user1);
+
+        Blog bookReviewBlog = new Blog("Book Review", "16/09/24", "19:00", user2);
+        Blog diaryBlog = new Blog("Diary Blog", "14/10/24", "11:00", user2);
+
+        Blog footballBlog = new Blog("Football Weekly", "16/02/24", "19:00", user3);
+        Blog healthBlog = new Blog("Live for Longer", "14/01/24", "11:00", user3);
+
+        Blog movieBlog = new Blog("Movie Reviews", "01/09/22", "19:00", user4);
+        Blog comicBlog = new Blog("Comic Central", "14/10/24", "11:00", user4);
 
         blogRepository.save(fitnessBlog);
         blogRepository.save(travelBlog);
         blogRepository.save(fashionBlog);
         blogRepository.save(bookReviewBlog);
         blogRepository.save(diaryBlog);
+        blogRepository.save(footballBlog);
+        blogRepository.save(healthBlog);
+        blogRepository.save(movieBlog);
+        blogRepository.save(comicBlog);
 
-        Post post1 = new Post("Weight Loss Journey", fitnessBlog, "15/05/24", "My 5 Workout Routines to lose Weight!", "image 1");
-        Post post2 = new Post("Travel places",travelBlog, "10/01/24", "My 5 Fav places to Travel", "image 4");
+
+        Post post1 = new Post("Weight Loss Journey", fitnessBlog, "15/05/24", "My 5 Workout Routines to lose Weight!", null);
+        Post post2 = new Post("Travel places",travelBlog, "10/01/24", "My 5 Fav places to Travel", "https://static.independent.co.uk/2023/08/02/10/iStock-507489863.jpg");
         Post post3 = new Post("Best places",travelBlog, "06/02/24", "Most expensive places to visit", "image 2");
         Post post4 = new Post("Fashionable",fashionBlog, "09/11/24", "The Smart Casual Look", "image 1");
         Post post5 = new Post("Book Review",bookReviewBlog, "09/11/24", "My Top 10 books of 2023", "image 1");
