@@ -44,6 +44,9 @@ public class DataLoader implements ApplicationRunner {
         User user2 = new User("Nick", "password");
         User user3 = new User("Amy", "password");
         User user4 = new User("Katie", "password");
+        User user5 = new User("Jen", "password");
+        User user6 = new User("Steve", "password");
+        User user7 = new User("John", "password");
 
         userRepository.save(user1);
         userRepository.save(user2);
