@@ -63,13 +63,9 @@ public class CommentService {
     //Updates a specific comment
     public Comment updateComment(CommentDTO commentDTO, long id) // updated comment
     {
-        //Finding post by its post id
-        Post post = postRepository.findById(id).get();
-
         Comment updatedComment = commentRepository.findById(id).get();
         updatedComment.setText(commentDTO.getText());
         updatedComment.setIsEdited(true);
-        updatedComment.getUserName();
         commentRepository.save(updatedComment);
         return updatedComment;
     }
