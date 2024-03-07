@@ -13,7 +13,12 @@ public class CommentDTO {
         this.text = text;
         this.postId = postId;
         this.userId = userId;
+    }
 
+    public CommentDTO(String text, Long userId){
+        this.text = text;
+        this.userId = userId;
+        this.postId = null;
     }
 
     //POJO empty constructor
