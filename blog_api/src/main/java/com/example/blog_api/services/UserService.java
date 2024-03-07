@@ -1,14 +1,10 @@
 package com.example.blog_api.services;
 
 import com.example.blog_api.models.*;
-import com.example.blog_api.repositories.BlogRepository;
-import com.example.blog_api.repositories.CommentRepository;
-import com.example.blog_api.repositories.PostRepository;
 import com.example.blog_api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,16 +12,6 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
-
-    @Autowired
-    BlogRepository blogRepository;
-
-    @Autowired
-    PostRepository postRepository;
-
-    @Autowired
-    CommentRepository commentRepository;
-
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
