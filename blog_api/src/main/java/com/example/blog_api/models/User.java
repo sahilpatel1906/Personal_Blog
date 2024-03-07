@@ -99,7 +99,7 @@ public class User {
         return userToUpdate;
     }
 
-    public void addLikeToPost(Post post){
+    public void addLikedPostToUser(Post post){
         this.posts.add(post);
     }
 
