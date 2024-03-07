@@ -103,7 +103,7 @@ public class User {
         this.posts.add(post);
     }
 
-    public void removeLikeFromPost(Post post){
+    public void removeLikedPostFromUser(Post post){
         this.posts.remove(post);
     }
 }

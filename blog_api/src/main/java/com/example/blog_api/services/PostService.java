@@ -75,7 +75,7 @@ public class PostService {
         if(post.get().getUsers().contains(user.get())){
 
             post.get().removeLike(user.get());
-            user.get().removeLikeFromPost(post.get());
+            user.get().removeLikedPostFromUser(post.get());
 
             postRepository.save(post.get());
             return post;
