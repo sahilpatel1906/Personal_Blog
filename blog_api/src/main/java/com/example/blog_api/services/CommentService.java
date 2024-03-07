@@ -64,7 +64,7 @@ public class CommentService {
     public Comment updateComment(CommentDTO commentDTO, long id) // updated comment
     {
         //Finding post by its post id
-        Post post = postRepository.findById(commentDTO.getPostId()).get();
+        Post post = postRepository.findById(id).get();
 
         Comment updatedComment = commentRepository.findById(id).get();
         updatedComment.setText(commentDTO.getText());
