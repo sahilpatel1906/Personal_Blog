@@ -164,8 +164,90 @@ public class DataLoader implements ApplicationRunner {
         commentRepository.save(diaryBlogComment2);
         commentRepository.save(diaryBlogComment3);
 
+
         post1.addLike(user1);
+        post1.addLike(user2);
+        post1.addLike(user3);
+        post1.addLike(user4);
+        post1.addLike(user5);
+        post1.addLike(user6);
+        post1.addLike(user7);
+
+        post2.addLike(user2);
+        post2.addLike(user3);
+        post2.addLike(user4);
+        post2.addLike(user5);
+        post2.addLike(user6);
+
+        post3.addLike(user3);
+        post3.addLike(user4);
+        post3.addLike(user5);
+        post3.addLike(user6);
+        post3.addLike(user7);
+
+        post4.addLike(user4);
+        post4.addLike(user5);
+        post4.addLike(user6);
+
+        post5.addLike(user5);
+        post5.addLike(user6);
+        post5.addLike(user7);
+
+        post6.addLike(user6);
+        post6.addLike(user7);
+        post6.addLike(user1);
+
+        post7.addLike(user7);
+        post7.addLike(user1);
+        post7.addLike(user2);
+
+        post8.addLike(user1);
+        post8.addLike(user2);
+        post8.addLike(user3);
+
+        post9.addLike(user2);
+        post9.addLike(user3);
+        post9.addLike(user4);
+
+        post10.addLike(user3);
+        post10.addLike(user4);
+        post10.addLike(user5);
+
+        post11.addLike(user4);
+        post11.addLike(user5);
+        post11.addLike(user6);
+
+        post12.addLike(user5);
+        post12.addLike(user6);
+        post12.addLike(user7);
+
+        post13.addLike(user6);
+        post13.addLike(user7);
+        post13.addLike(user1);
+
+        post14.addLike(user7);
+        post14.addLike(user1);
+        post14.addLike(user2);
+
+        post15.addLike(user1);
+        post15.addLike(user2);
+        post15.addLike(user3);
+
         postRepository.save(post1);
+        postRepository.save(post2);
+        postRepository.save(post3);
+        postRepository.save(post4);
+        postRepository.save(post5);
+        postRepository.save(post6);
+        postRepository.save(post7);
+        postRepository.save(post8);
+        postRepository.save(post9);
+        postRepository.save(post10);
+        postRepository.save(post11);
+        postRepository.save(post12);
+        postRepository.save(post13);
+        postRepository.save(post14);
+        postRepository.save(post15);
     }
 }
 
