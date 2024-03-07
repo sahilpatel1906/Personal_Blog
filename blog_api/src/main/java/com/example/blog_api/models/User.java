@@ -99,11 +99,11 @@ public class User {
         return userToUpdate;
     }
 
-    public void addLikeToPost(Post post){
+    public void addLikedPostToUser(Post post){
         this.posts.add(post);
     }
 
-    public void removeLikeFromPost(Post post){
+    public void removeLikedPostFromUser(Post post){
         this.posts.remove(post);
     }
 }
