@@ -1,6 +1,5 @@
 package com.example.blog_api.models;
 
-import java.util.List;
 
 public class NewUserDTO {
 

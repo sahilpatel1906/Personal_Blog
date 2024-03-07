@@ -40,7 +40,7 @@ public class BlogService {
     public Optional<Blog> updateBlog(UpdateBlogDTO updateBlogDTO, Long id){
         Optional<Blog> blogToUpdate = blogRepository.findById(id);
         if(blogToUpdate.isEmpty()){
-            return null;
+            return Optional.empty();
         }
 
         blogToUpdate.get().setName(updateBlogDTO.getName());
@@ -52,7 +52,9 @@ public class BlogService {
     }
 
     public void deleteBlog(Long id) {
-        Blog blog = blogRepository.findById(id).get();
-        blogRepository.delete(blog);
+        Optional<Blog> blog = blogRepository.findById(id);
+        if(blog.isPresent()) {
+            blogRepository.delete(blog.get());
+        }
     }
 }
