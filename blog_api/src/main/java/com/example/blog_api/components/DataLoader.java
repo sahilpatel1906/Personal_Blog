@@ -119,6 +119,24 @@ public class DataLoader implements ApplicationRunner {
         Comment fashionComment = new Comment(post4,"where did you get those shoes from", false, user4.getName());
         Comment bookReviewComment = new Comment(post5, "I've read up to page 60", false, user1.getName());
         Comment diaryBlogComment = new Comment(post6, "Wow, really interesting", false, user2.getName());
+        Comment healthComment = new Comment(post7, "Thanks for the tips!", false, user5.getName());
+        Comment healthComment1 = new Comment(post7, "I'll incorporate these into my routine", false, user6.getName());
+        Comment footballComment = new Comment(post8, "Interesting analysis, I never thought of that", false, user7.getName());
+        Comment footballComment1 = new Comment(post8, "Can't wait for the next match breakdown", false, user1.getName());
+        Comment movieComment = new Comment(post9, "These movies are classics!", false, user2.getName());
+        Comment movieComment1 = new Comment(post9, "I've been meaning to watch these", false, user3.getName());
+        Comment comicComment = new Comment(post10, "Love the new series, can't wait for more!", false, user4.getName());
+        Comment comicComment1 = new Comment(post10, "The art style is amazing", false, user5.getName());
+        Comment fashionComment2 = new Comment(post11, "I'm obsessed with these trends", false, user6.getName());
+        Comment fashionComment3 = new Comment(post11, "I need to update my wardrobe ASAP", false, user7.getName());
+        Comment fitnessComment2 = new Comment(post12, "Finally, some tips I can use!", false, user1.getName());
+        Comment fitnessComment3 = new Comment(post12, "I'll add these exercises to my routine", false, user2.getName());
+        Comment travelComment2 = new Comment(post13, "Your stories make me want to travel more", false, user3.getName());
+        Comment travelComment3 = new Comment(post13, "Such adventurous experiences!", false, user4.getName());
+        Comment bookReviewComment2 = new Comment(post14, "Adding these books to my reading list", false, user5.getName());
+        Comment bookReviewComment3 = new Comment(post14, "I've read some of these, they're great recommendations", false, user6.getName());
+        Comment diaryBlogComment2 = new Comment(post15, "Your reflections resonate with me", false, user7.getName());
+        Comment diaryBlogComment3 = new Comment(post15, "Thanks for sharing your thoughts", false, user1.getName());
 
         commentRepository.save(fitnessComment);
         commentRepository.save(fitnessComment1);
@@ -127,6 +145,24 @@ public class DataLoader implements ApplicationRunner {
         commentRepository.save(fashionComment);
         commentRepository.save(bookReviewComment);
         commentRepository.save(diaryBlogComment);
+        commentRepository.save(healthComment);
+        commentRepository.save(healthComment1);
+        commentRepository.save(footballComment);
+        commentRepository.save(footballComment1);
+        commentRepository.save(movieComment);
+        commentRepository.save(movieComment1);
+        commentRepository.save(comicComment);
+        commentRepository.save(comicComment1);
+        commentRepository.save(fashionComment2);
+        commentRepository.save(fashionComment3);
+        commentRepository.save(fitnessComment2);
+        commentRepository.save(fitnessComment3);
+        commentRepository.save(travelComment2);
+        commentRepository.save(travelComment3);
+        commentRepository.save(bookReviewComment2);
+        commentRepository.save(bookReviewComment3);
+        commentRepository.save(diaryBlogComment2);
+        commentRepository.save(diaryBlogComment3);
     }
 }
 
