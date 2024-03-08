@@ -16,6 +16,7 @@ One relevant example of a platform that has developed a similar concept is Subst
 
 ## Links to Diagrams
 ERD Diagram: https://github.com/sabaki4/Personal_Blog/blob/main/Project_ERD.png
+
 UML Diagram: https://github.com/sabaki4/Personal_Blog/blob/main/FinalDiagrams.png
 
 ## Functionality
