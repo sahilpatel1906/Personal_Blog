@@ -14,6 +14,17 @@ Users can also like each other’s posts; each post can be liked once and the li
 
 One relevant example of a platform that has developed a similar concept is Substack.
 
+![alt text](https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png) ![alt text](	https://user-images.githubusercontent.com/25181517/183891303-41f257f8-6b3d-487c-aa56-c497b880d0fb.png) ![alt text](https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png) ![alt text](https://user-images.githubusercontent.com/25181517/117207242-07d5a700-adf4-11eb-975e-be04e62b984b.png) ![alt text](https://user-images.githubusercontent.com/25181517/117533873-484d4480-afef-11eb-9fad-67c8605e3592.png)
+
+## Setup Instructions
+- Install PostgreSQL, Postico, Postman, and an IDE that supports Java.
+- In your terminal, navigate to the directory you want to clone the repository into and then clone the repository.
+- In your terminal create a PostgreSQL database using the command: 
+```bash
+    createdb Blog_API
+```
+- Then run the application and use Postman and Postico to run endpoints and view changes in the database.
+
 ## Links to Diagrams
 ERD Diagram: https://github.com/sabaki4/Personal_Blog/blob/main/Project_ERD.png
 
@@ -78,7 +89,7 @@ Created:
 | SHOW  | /posts/:id  | GET    | Returns details of one specific post |              |
 | UPDATE| /posts/:id  | PUT    | Updates a specific post       | {"title" : "New Dice", "content" : "Different coloured dice", "mediaURL" : "image2"}             |
 | DELETE| /posts/:id  | DELETE | Deletes a specific post       |              |
-| UPDATE| /posts/:id  | PATCH | Adds and removes likes       |              |
+| UPDATE| /posts/:postId/:userId/likes  | PATCH | Adds and removes likes       |             |
 
 ---
 
