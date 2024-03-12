@@ -14,6 +14,8 @@ Users can also like each other’s posts; each post can be liked once and the li
 
 One relevant example of a platform that has developed a similar concept is Substack.
 
+Tech Stack:
+
 <div align="center">
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/192109061-e138ca71-337c-4019-8d42-4792fdaa7128.png" alt="Postman" title="Postman"/></code>
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png" alt="Java" title="Java"/></code>
