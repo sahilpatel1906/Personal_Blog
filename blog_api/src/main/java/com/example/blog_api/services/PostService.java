@@ -76,7 +76,7 @@ public class PostService {
 
             post.get().removeLike(user.get());
             user.get().removeLikedPostFromUser(post.get());
-            post.get().decrementLikeCounter();
+//            post.get().decrementLikeCounter();
 
             postRepository.save(post.get());
             return post;
@@ -84,7 +84,7 @@ public class PostService {
 
         post.get().addLike(user.get());
         user.get().addLikedPostToUser(post.get());
-        post.get().incrementLikeCounter();
+//        post.get().incrementLikeCounter();
 
         postRepository.save(post.get());
         return post;

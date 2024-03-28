@@ -144,20 +144,23 @@ public class Post {
 
     public void addLike(User user){
         this.users.add(user);
+        this.numberOfLikes += 1;
     }
 
-    public void removeLike(User user){
+    public void removeLike(User user) {
         this.users.remove(user);
-    }
-
-    public void decrementLikeCounter(){
-        if(this.numberOfLikes > 0){
+        if (this.numberOfLikes > 0) {
             this.numberOfLikes -= 1;
         }
     }
-
-    public void incrementLikeCounter(){
-        this.numberOfLikes += 1;
-    }
+//    public void decrementLikeCounter(){
+//        if(this.numberOfLikes > 0){
+//            this.numberOfLikes -= 1;
+//        }
+//    }
+//
+//    public void incrementLikeCounter(){
+//        this.numberOfLikes += 1;
+//    }
 
 }
