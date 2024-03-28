@@ -1,6 +1,7 @@
 package com.example.blog_api.services;
 
 import com.example.blog_api.models.*;
+import com.example.blog_api.repositories.PostRepository;
 import com.example.blog_api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PostRepository postRepository;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -36,7 +40,15 @@ public class UserService {
 
     public void deleteUser(Long id){
         User user = userRepository.findById(id).get();
+        // Remove posts a user has liked
         removeLikedPostsFromUser(user);
+        // Remove the likes on the users posts
+        List<Blog> blogs = user.getBlogs();
+        for(Blog blog : blogs){
+            for(Post post : blog.getPosts()){
+                postRepository.delete(post);
+            }
+        }
         userRepository.delete(user);
     }
 
