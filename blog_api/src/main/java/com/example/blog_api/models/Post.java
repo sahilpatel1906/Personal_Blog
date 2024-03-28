@@ -41,9 +41,6 @@ public class Post {
 
     private int numberOfLikes;
 
-    public void setNumberOfLikes(int numberOfLikes) {
-        this.numberOfLikes = numberOfLikes;
-    }
 
     @JsonIgnoreProperties({"post", "id","isEdited"})
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -131,7 +128,11 @@ public class Post {
     }
 
     public int getNumberOfLikes(){
-        return this.users.size();
+        return this.numberOfLikes;
+    }
+
+    public void setNumberOfLikes(int numberOfLikes) {
+        this.numberOfLikes = numberOfLikes;
     }
 
     public void addComment(Comment comment){
@@ -153,14 +154,5 @@ public class Post {
             this.numberOfLikes -= 1;
         }
     }
-//    public void decrementLikeCounter(){
-//        if(this.numberOfLikes > 0){
-//            this.numberOfLikes -= 1;
-//        }
-//    }
-//
-//    public void incrementLikeCounter(){
-//        this.numberOfLikes += 1;
-//    }
 
 }
