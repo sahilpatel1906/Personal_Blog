@@ -1,14 +1,13 @@
 package com.example.blog_api.services;
 
-import com.example.blog_api.models.Blog;
-import com.example.blog_api.models.NewBlogDTO;
-import com.example.blog_api.models.UpdateBlogDTO;
-import com.example.blog_api.models.User;
+import com.example.blog_api.models.*;
 import com.example.blog_api.repositories.BlogRepository;
 import com.example.blog_api.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +18,9 @@ public class BlogService {
     UserRepository userRepository;
     @Autowired
     BlogRepository blogRepository;
+
+    @Autowired
+    PostService postService;
 
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
@@ -51,9 +53,15 @@ public class BlogService {
         return blogToUpdate;
     }
 
+    @Transactional
     public void deleteBlog(Long id) {
         Optional<Blog> blog = blogRepository.findById(id);
         if(blog.isPresent()) {
+            Blog blogToDelete = blog.get();
+            List<Post> posts = blogToDelete.getPosts();
+            for(Post post : posts){
+                postService.deletePost(post.getId());
+            }
             blogRepository.delete(blog.get());
         }
     }
