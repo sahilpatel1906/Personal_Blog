@@ -85,15 +85,15 @@ public class DataLoader implements ApplicationRunner {
         Post post4 = new Post("Fashionable",fashionBlog, "09/11/24", "The Smart Casual Look", null);
         Post post5 = new Post("Book Review",bookReviewBlog, "09/11/24", "My Top 10 books of 2023", null);
         Post post6 = new Post("My Diary",diaryBlog, "09/11/24", "Diary entry 103", null);
-        Post post7 = new Post("Healthy Habits", healthBlog, "20/02/24", "5 Tips for a Healthier Lifestyle", "https://example.com/image7.jpg");
-        Post post8 = new Post("Football Tactics", footballBlog, "22/03/24", "Analyzing the Latest Strategies", "https://example.com/image8.jpg");
+        Post post7 = new Post("Healthy Habits", healthBlog, "20/02/24", "5 Tips for a Healthier Lifestyle", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUddtbssFrwYNb-490PD8PNtfF5g7oiPOi4Q&s");
+        Post post8 = new Post("Football Tactics", footballBlog, "22/03/24", "Analyzing the Latest Strategies", "https://www.footballizer.com/img/public/tactics.jpg");
         Post post9 = new Post("Movie Recommendations", movieBlog, "05/10/22", "Must-Watch Films of the Year", null);
-        Post post10 = new Post("Comic Review", comicBlog, "18/11/24", "Exploring the Latest Comic Releases", "https://example.com/image9.jpg");
-        Post post11 = new Post("Favorite Fashion Trends", fashionBlog, "03/02/24", "Trendy Outfit Ideas for the Season", "https://example.com/image11.jpg");
-        Post post12 = new Post("Fitness Tips", fitnessBlog, "28/05/24", "Effective Exercises for Building Muscle", "https://example.com/image12.jpg");
-        Post post13 = new Post("Adventure Stories", travelBlog, "15/03/24", "Exciting Tales from Around the Globe", "https://example.com/image13.jpg");
-        Post post14 = new Post("Book Recommendation", bookReviewBlog, "30/11/24", "A Must-Read Novel for Bookworms", "https://example.com/image14.jpg");
-        Post post15 = new Post("Reflecting on Life", diaryBlog, "02/12/24", "Thoughts on Recent Experiences", "https://example.com/image15.jpg");
+        Post post10 = new Post("Comic Review", comicBlog, "18/11/24", "Exploring the Latest Comic Releases", "https://cdn.vox-cdn.com/thumbor/t9HKXdyDPxOfrGSl0SCoZZyO6kY=/0x0:3000x2000/2820x1586/filters:focal(1260x760:1740x1240):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/71345301/fallcomicspreview.0.jpg");
+        Post post11 = new Post("Favorite Fashion Trends", fashionBlog, "03/02/24", "Trendy Outfit Ideas for the Season", "https://storage.googleapis.com/windsor-cms/media/2022/08/d310ac0e-fall-outfit-ideas-for-back-to-school-2022-1.jpg");
+        Post post12 = new Post("Fitness Tips", fitnessBlog, "28/05/24", "Effective Exercises for Building Muscle", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIGhtu2uVrXQpahincQrl_IJpfRYX-7bE5SrPrJ-1oCaCArx5S");
+        Post post13 = new Post("Adventure Stories", travelBlog, "15/03/24", "Exciting Tales from Around the Globe", "https://www.airfaregeeks.com.au/wp-content/uploads/2019/10/Quick-Guide-To-Planning-A-Multi-Continent-Or-Round-The-World-Itinerary.jpeg");
+        Post post14 = new Post("Book Recommendation", bookReviewBlog, "30/11/24", "A Must-Read Novel for Bookworms", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1415428227i/20518872.jpg");
+        Post post15 = new Post("Reflecting on Life", diaryBlog, "02/12/24", "Thoughts on Recent Experiences", "https://www.lawnstarter.com/blog/wp-content/uploads/2023/06/close-up-of-grass-1.jpg");
 
         postRepository.save(post1);
         postRepository.save(post2);
