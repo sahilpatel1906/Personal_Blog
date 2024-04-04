@@ -21,7 +21,6 @@ public class User {
     private String name;
 
     @Column
-    @JsonIgnore
     private String password;
 
     @OneToMany(mappedBy = "user")
